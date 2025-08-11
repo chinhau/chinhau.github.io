@@ -1,15 +1,53 @@
 import { PageLayout, SharedLayout } from "./quartz/cfg"
 import * as Component from "./quartz/components"
+import CustomFooter from "./quartz/components/CustomFooter"
+import { QuartzComponentConstructor, QuartzComponentProps } from "./quartz/components/types"
 
-// components shared across all pages
+// Hide a component when a front-matter flag is set (e.g., hideExplorer / hideToc)
+const unlessHidden =
+  (flag: "hideExplorer" | "hideToc") =>
+  (C: QuartzComponentConstructor): QuartzComponentConstructor =>
+  (opts: QuartzComponentProps) =>
+    opts.fileData.frontmatter?.[flag] ? null : C(opts)
+
+// Show TOC only if the page actually has enough headings (e.g., 3+)
+const onlyIfManyHeadings =
+  (min = 3) =>
+  (C: QuartzComponentConstructor): QuartzComponentConstructor =>
+  (opts: QuartzComponentProps) =>
+    (opts.fileData.headings?.length ?? 0) >= min ? C(opts) : null
+
+const isHome = (opts: QuartzComponentProps) =>
+  opts.fileData.slug === "index" || opts.fileData.slug === "" || opts.fileData.slug === undefined
+
+const wrap =
+  (show: (o: QuartzComponentProps) => boolean, C: QuartzComponentConstructor): QuartzComponentConstructor =>
+  (opts) => (show(opts) ? C(opts) : null)
+
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
   afterBody: [],
-  footer: Component.Footer({
+  left: [
+    // Show Explorer on all pages EXCEPT home, unless page opts out.
+    wrap(
+      (o) => !isHome(o) && !o.fileData.frontmatter?.hideExplorer,
+      Component.Explorer()
+    ),
+  ],
+  right: [
+    // Show TOC only if not home, not hidden, and has enough headings
+    wrap(
+      (o) => !isHome(o) && !o.fileData.frontmatter?.hideToc && (o.fileData.headings?.length ?? 0) >= 3,
+      Component.TableOfContents()
+    ),
+  ],
+  footer: CustomFooter({
     links: {
-      GitHub: "https://github.com/jackyzha0/quartz",
-      "Discord Community": "https://discord.gg/cRFFHYye7t",
+      GitHub: "https://github.com/chinhau",
+      Twitter: "https://twitter.com/elonmusk", // Optional
+      LinkedIn: "https://linkedin.com/in/chinhau", 
+      Email: "mailto:im.chinhau@gmail.com",
     },
   }),
 }
@@ -65,4 +103,5 @@ export const defaultListPageLayout: PageLayout = {
     Component.Explorer(),
   ],
   right: [],
+  afterBody: [],
 }

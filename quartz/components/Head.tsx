@@ -5,6 +5,7 @@ import { googleFontHref, googleFontSubsetHref } from "../util/theme"
 import { QuartzComponent, QuartzComponentConstructor, QuartzComponentProps } from "./types"
 import { unescapeHTML } from "../util/escape"
 import { CustomOgImagesEmitterName } from "../plugins/emitters/ogImage"
+import { joinSegments, pathToRoot } from "../util/path"
 export default (() => {
   const Head: QuartzComponent = ({
     cfg,
@@ -52,7 +53,10 @@ export default (() => {
         )}
         <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+	
+    	<link rel="icon" href={joinSegments(baseDir, "static/favicon.svg")} type="image/svg+xml" />
+	<link rel="alternate icon" href={joinSegments(baseDir, "static/favicon.png")} />
+	
         <meta name="og:site_name" content={cfg.pageTitle}></meta>
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />

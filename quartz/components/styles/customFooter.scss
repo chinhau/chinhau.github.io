@@ -1,0 +1,35 @@
+footer {
+  .social-links {
+    display: flex;
+    gap: 2.22rem; /* Increased from 1rem */
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+    flex-wrap: wrap; /* In case of small screens */
+    
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.11rem; /* Increased padding */
+      border-radius: 0.5rem; /* Slightly more rounded */
+      transition: all 0.2s ease;
+      color: var(--gray);
+      min-width: 44px; /* Minimum touch target */
+      min-height: 44px;
+      
+      &:hover {
+        color: var(--secondary);
+        background-color: var(--lightgray);
+        transform: translateY(-2px) scale(1.05); /* Slightly more hover effect */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      svg {
+        width: 22px; /* Slightly larger icons */
+        height: 22px;
+        fill: currentColor;
+      }
+    }
+  }
+}
