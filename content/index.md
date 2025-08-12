@@ -1,27 +1,52 @@
 ---
-title: The e³ Alignment Logbook
+title: "The e³ Alignment Logbook"
 hideTitle: true
 hideMeta: true
 hideExplorer: true
 hideToc: true
 ---
 
-<div class="home-hero">
-    <p class="tagline"><em>
-	Misalignment is everywhere: fitness goals we abandon, relationships that drift, careers that stall—there's always a gap between where we are and where we want to be. 
-	<br><br> 
-	This logbook documents the e³ feedback loops (explore, exploit, evaluate) that make convergence possible. 
-    </em></p>
-  <p>
-    <a class="cta" href="/feedback-loop/">Latest updates</a>
-    <a class="cta" href="/exploration-exploitation/">Deep dives</a>
-  </p>
+<div class="e3-legend">
+  <span class="pill">EXPLORE</span>
+  <span class="pill">EXPLOIT</span>
+  <span class="pill">EVALUATE</span>
+  <div class="flow-dot"></div>
 </div>
+
+<p class="tagline"><em>
+  <b>Misalignment is everywhere</b>: abandoned fitness goals, drifting relationships, stalled careers, buggy code — 
+  there's always a gap between where we are and where we want to be.
+  This logbook documents the e³ (explore, exploit, evaluate) feedback loop that makes convergence possible — aligning intention with outcomes through tight iterations.
+  Now we've turned electricity, water, and non-linear math into tools our ancestors would’ve called WITCHCRAFT… yet we still can’t close the gap between our bed and our alarm clock.
+</em></p>
+
+<p>
+  <a class="cta" href="/feedback-loop/">Latest updates</a>
+  <a class="cta" href="/exploration-exploitation/">Deep dives</a>
+</p>
+
+<div class="category-chips">
+  <a class="chip" href="/reflections">💡 Reflections </a>
+  <a class="chip" href="/research-papers">📊 Research Papers</a>
+  <a class="chip" href="/projects">⚙️ Building Projects</a>
+  <a class="chip" href="/tools-setup">🔧 Tools & Setup</a>
+  <a class="chip" href="/learning-notes">📚 Learning Notes</a>
+</div>
+
+**[💡 Reflections & Insights](/reflections-insights)** — Career journey and personal insights
+
+**[📊 Research Papers](/research-papers)** — Paper summaries, implementations, and analysis
+
+**[⚙️ Building Projects](/building-projects)** — Hands-on implementations and experiments
+
+**[🔧 Tools & Setup](/tools-setup)** — Development workflows and productivity tools
+
+**[📚 Learning Notes](/learning-notes)** — Study materials and concept explanations
+
 
 ## Featured
 <!-- Add a couple of links when ready -->
-<!-- - [Week 01 — Spinning up the loop](/feedback-loop/2025-08-week-01/) -->
 
 ## Latest
-<!-- Keep or remove. We can automate this later. -->
+<!-- We can automate this later -->
 

@@ -1,2 +1,128 @@
 @use "./base.scss";
 
+.page-content p,
+.page-content em,
+.content p,
+.content em {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.category-chips{ display:flex; flex-wrap:wrap; gap:.5rem; margin:1rem 0 1.25rem; }
+.chip{
+  display:inline-block; padding:.5rem .75rem; border:1px solid currentColor;
+  border-radius:999px; text-decoration:none; font-size:.95rem; opacity:.9;
+}
+.chip:hover{ transform:translateY(-1px); }
+
+
+/* Specifically target that problematic element */
+p:has(em) {
+  background: none !important;
+  border: none !important;
+}
+
+/* Also try targeting the em directly */
+em {
+  background: none !important;
+  border: none !important;
+  font-style: normal !important;
+}
+
+.e3-legend {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem 0 1.5rem;
+    gap: 0;
+}
+
+.e3-legend .pill {
+    padding: 0.5rem 1rem;
+    background: #f8f9fa;
+    border: 1px solid #1a472a;
+    font-size: 0.85em;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #1a472a;
+    z-index: 3;
+    position: relative;
+    margin: 0 1.5rem;
+}
+
+.e3-legend::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #1a472a;
+    opacity: 0.4;
+    z-index: 1;
+}
+
+.e3-legend .flow-dot {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 8px;
+    height: 8px;
+    background: #e74c3c;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    animation: flowAcross 3s ease-in-out infinite;
+    z-index: 2
+}
+
+@keyframes flowAcross {
+    0% { left: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .e3-legend .flow-dot {
+        animation: none;
+        display: none;
+    }
+}
+
+.intro-text {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  color: #333;
+}
+
+.intro-text strong {
+  font-weight: 600;
+  color: #1a472a;
+}
+
+.tagline {
+  background: none !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 1.5rem 0 !important;
+  font-style: normal !important;
+}
+
+// Style the tagline properly
+.tagline {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #333;
+}
+
+.tagline strong,
+.tagline b {
+  font-weight: 600;
+  color: #1a472a;
+}
+

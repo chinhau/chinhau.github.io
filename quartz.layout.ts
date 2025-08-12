@@ -32,7 +32,7 @@ export const sharedPageComponents: SharedLayout = {
     // Show Explorer on all pages EXCEPT home, unless page opts out.
     wrap(
       (o) => !isHome(o) && !o.fileData.frontmatter?.hideExplorer,
-      Component.Explorer()
+      Component.Explorer({title: "e³ Library", })
     ),
   ],
   right: [
@@ -76,7 +76,7 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({title: "e³ Library", }),
   ],
   right: [
     Component.Graph(),
@@ -100,7 +100,7 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer(),
+    Component.Explorer({title: "e³ Library", }),
   ],
   right: [],
   afterBody: [],
