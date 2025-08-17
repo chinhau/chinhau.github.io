@@ -17,7 +17,7 @@ const config: QuartzConfig = {
       tagId: "G-CTQ18QRNYN",
     },
     locale: "en-US",
-    baseUrl: "https://chinhau.github.io",
+    baseUrl: "chinhau.github.io",
     ignorePatterns: ["private", "templates", ".obsidian"],
     defaultDateType: "modified",
     theme: {
