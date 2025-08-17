@@ -37,7 +37,7 @@ export const sharedPageComponents: SharedLayout = {
         categoryId: 'DIC_kwDOPb6Ryc4CuQ3V',
         mapping: 'pathname',
         strict: '0',
-        reactionsEnabled: '1',
+        reactionsEnabled: '0',
         emitMetadata: '0',
         inputPosition: 'bottom',
         theme: 'preferred_color_scheme',
@@ -97,7 +97,7 @@ export const defaultContentPageLayout: PageLayout = {
   ],
   right: [
     Component.Graph(),
-    Component.DesktopOnly(Component.TableOfContents()),
+    // Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
   // ✅ ADD THIS SECTION:
@@ -151,22 +151,22 @@ export const defaultListPageLayout: PageLayout = {
     })
   ],
   afterBody: [
-    // ✅ Add comments to bottom of pages
-    Component.Comments({
-      provider: 'giscus',
-      options: {
-        repo: 'chinhau/chinhau.github.io',
-        repoId: 'R_kgDOPb6RyQ',
-        category: 'General',
-        categoryId: 'DIC_kwDOPb6Ryc4CuQ3V',
-        mapping: 'pathname',
-        strict: '0',
-        reactionsEnabled: '1',
-        emitMetadata: '0',
-        inputPosition: 'bottom',
-        theme: 'preferred_color_scheme',
-        lang: 'en'
-      }
-    })
+   // ✅ Add comments to bottom of pages
+   // Component.Comments({
+   //   provider: 'giscus',
+   //  options: {
+   //     repo: 'chinhau/chinhau.github.io',
+   //     repoId: 'R_kgDOPb6RyQ',
+   //     category: 'General',
+   //     categoryId: 'DIC_kwDOPb6Ryc4CuQ3V',
+   //     mapping: 'pathname',
+   //     strict: '0',
+   //     reactionsEnabled: '1',
+   //     emitMetadata: '0',
+   //     inputPosition: 'bottom',
+   //     theme: 'preferred_color_scheme',
+   //     lang: 'en'
+   //   }
+   // })
   ],
 }
