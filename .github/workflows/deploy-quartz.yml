@@ -29,7 +29,7 @@ jobs:
         if: ${{ hashFiles('**/package-lock.json') != '' }}
         run: npm ci
       - name: Build Quartz
-        run: npx --yes @quartz/cli@latest build
+        run: npx quartz build  # Fixed command
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
