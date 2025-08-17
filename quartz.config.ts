@@ -13,7 +13,8 @@ const config: QuartzConfig = {
     enableSPA: true,
     enablePopovers: true,
     analytics: {
-      provider: "plausible",
+      provider: "google",
+      tagId: "G-CTQ18QRNYN",
     },
     locale: "en-US",
     baseUrl: "https://chinhau.github.io",
