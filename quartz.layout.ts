@@ -27,7 +27,24 @@ const wrap =
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+      Component.Comments({
+      provider: 'giscus',
+      options: {
+        repo: 'chinhau/chinhau.github.io',
+        repoId: 'R_kgDOPb6RyQ',
+        category: 'General',
+        categoryId: 'DIC_kwDOPb6Ryc4CuQ3V',
+        mapping: 'pathname',
+        strict: '0',
+        reactionsEnabled: '1',
+        emitMetadata: '0',
+        inputPosition: 'bottom',
+        theme: 'preferred_color_scheme',
+        lang: 'en'
+      }
+    })
+  ],
   left: [
     // Show Explorer on all pages EXCEPT home, unless page opts out.
     wrap(
@@ -60,7 +77,7 @@ export const defaultContentPageLayout: PageLayout = {
       condition: (page) => page.fileData.slug !== "index",
     }),
     Component.ArticleTitle(),
-    Component.ContentMeta(),
+    Component.ContentMeta(), // ✅ Already have reading time!
     Component.TagList(),
   ],
   left: [
@@ -76,18 +93,41 @@ export const defaultContentPageLayout: PageLayout = {
         { Component: Component.ReaderMode() },
       ],
     }),
-    Component.Explorer({title: "e³ Library", }),
+    Component.Explorer({title: "e³ Library"}),
   ],
   right: [
     Component.Graph(),
     Component.DesktopOnly(Component.TableOfContents()),
     Component.Backlinks(),
   ],
+  // ✅ ADD THIS SECTION:
+  afterBody: [
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        repo: 'chinhau/chinhau.github.io',
+        repoId: 'R_kgDOPb6RyQ',
+        category: 'General',
+        categoryId: 'DIC_kwDOPb6Ryc4CuQ3V',
+        mapping: 'pathname',
+        strict: '0',
+        reactionsEnabled: '1',
+        emitMetadata: '0',
+        inputPosition: 'bottom',
+        theme: 'preferred_color_scheme',
+        lang: 'en'
+      }
+    })
+  ],
 }
 
 // components for pages that display lists of pages  (e.g. tags or folders)
 export const defaultListPageLayout: PageLayout = {
-  beforeBody: [Component.Breadcrumbs(), Component.ArticleTitle(), Component.ContentMeta()],
+  beforeBody: [
+    Component.Breadcrumbs(), 
+    Component.ArticleTitle(), 
+    Component.ContentMeta() // ✅ Already have reading time!
+  ],
   left: [
     Component.PageTitle(),
     Component.MobileOnly(Component.Spacer()),
@@ -100,8 +140,33 @@ export const defaultListPageLayout: PageLayout = {
         { Component: Component.Darkmode() },
       ],
     }),
-    Component.Explorer({title: "e³ Library", }),
+    Component.Explorer({title: "e³ Library"}),
   ],
-  right: [],
-  afterBody: [],
+  right: [
+    // ✅ Add recent posts to right sidebar
+    Component.RecentNotes({
+      title: "Latest Research",
+      limit: 5,
+      filter: (f) => f.slug !== "index"
+    })
+  ],
+  afterBody: [
+    // ✅ Add comments to bottom of pages
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        repo: 'chinhau/chinhau.github.io',
+        repoId: 'R_kgDOPb6RyQ',
+        category: 'General',
+        categoryId: 'DIC_kwDOPb6Ryc4CuQ3V',
+        mapping: 'pathname',
+        strict: '0',
+        reactionsEnabled: '1',
+        emitMetadata: '0',
+        inputPosition: 'bottom',
+        theme: 'preferred_color_scheme',
+        lang: 'en'
+      }
+    })
+  ],
 }
