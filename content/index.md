@@ -22,6 +22,7 @@ hideToc: true
 
 ---
 
+<!--
 ## <p>
 ##  <a class="cta" href="/feedback-loop/">Latest updates</a>
 ##  <a class="cta" href="/exploration-exploitation/">Deep dives</a>
@@ -40,11 +41,9 @@ hideToc: true
 ## **[⚙️ Building Projects](/building-projects)** — Hands-on implementations and experiments
 ## **[🔧 Tools & Setup](/tools-setup)** — Development workflows and productivity tools
 ## **[📚 Learning Notes](/learning-notes)** — Study materials and concept explanations
+-->
 
+#### Featured
 
-## Featured
-<!-- Add a couple of links when ready -->
-
-## Latest
-<!-- We can automate this later -->
+#### Latest
 

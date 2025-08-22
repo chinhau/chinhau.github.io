@@ -1,20 +1,48 @@
 version: 2
 updates:
-  - package-ecosystem: "npm"
-    directory: "/"
-    schedule:
-      interval: "weekly"
-    groups:
-      production-dependencies:
-        applies-to: "version-updates"
-        patterns:
-          - "*"
+  # GitHub Actions (workflows)
   - package-ecosystem: "github-actions"
     directory: "/"
-    schedule:
-      interval: "weekly"
+    schedule: { interval: "monthly" }
+    # Group core workflow actions so you usually get 1 PR
     groups:
-      ci-dependencies:
-        applies-to: "version-updates"
+      gha-core:
+        applies-to: version-updates
         patterns:
+          - "actions/checkout*"
+          - "actions/setup-node*"
+          - "actions/deploy-pages*"
+          - "actions/upload-pages-artifact*"
+      gha-other:
+        applies-to: version-updates
+        patterns: ["*"]
+    # Don’t jump to breaking majors automatically
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    open-pull-requests-limit: 5
+
+  # npm (Quartz dependencies)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule: { interval: "monthly" }
+    # Keep lockfile fresh without changing code unless needed
+    versioning-strategy: lockfile-only
+    groups:
+      quartz-core:
+        applies-to: version-updates
+        patterns:
+          - "quartz*"
+          - "@quartz*"
+      tooling-and-ui:
+        applies-to: version-updates
+        patterns:
+          - "vite*"
+          - "eslint*"
+          - "prettier*"
           - "*"
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    open-pull-requests-limit: 5
+
